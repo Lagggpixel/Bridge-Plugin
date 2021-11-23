@@ -1,0 +1,6 @@
+name: Bridge
+version: '${project.version}'
+main: me.lagggpixel.bridge.Bridge
+api-version: 1.8
+authors: [ Lagggpixel ]
+description: Bridge Plugin
