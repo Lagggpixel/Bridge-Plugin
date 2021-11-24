@@ -1,4 +1,4 @@
-package me.lagggpixel.bridge.GameInstance;
+package me.lagggpixel.bridge.util;
 
 import org.bukkit.event.Listener;
 
