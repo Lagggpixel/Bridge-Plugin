@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
 
-public class PlayerManger extends JavaPlugin {
+public class PlayerManger {
     private UUID uuid;
     private boolean inGame;
     private int coinsEarned;

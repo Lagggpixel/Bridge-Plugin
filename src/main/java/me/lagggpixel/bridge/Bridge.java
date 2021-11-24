@@ -1,8 +1,10 @@
 package me.lagggpixel.bridge;
 
+import com.onarandombox.MultiverseCore.MultiverseCore;
 import me.lagggpixel.bridge.PlayerData.PlayerConfig;
 import me.lagggpixel.bridge.PlayerData.PlayerJoin;
 import me.lagggpixel.bridge.PlayerData.PlayerManger;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public final class Bridge extends JavaPlugin {
         PlayerConfig.SetupPlayerConfig();
         PlayerConfig.PlayerConfigGet().options().copyDefaults(true);
         PlayerConfig.PlayerConfigSave();
-        PlayerConfig.PlayerConfigGet().addDefault("Coins", 0);
+
 
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
     }

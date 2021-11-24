@@ -5,9 +5,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class PlayerJoin extends JavaPlugin implements Listener {
+public class PlayerJoin implements Listener {
 
     Bridge plugin;
 
@@ -23,8 +22,8 @@ public class PlayerJoin extends JavaPlugin implements Listener {
         String name = player.getName();
         String inGame = "false";
 
-        PlayerConfig.PlayerConfigGet().addDefault("Name", name);
-        PlayerConfig.PlayerConfigGet().addDefault("InGame", inGame);
+        PlayerConfig.PlayerConfigGet().addDefault("Name", "" + name);
+        PlayerConfig.PlayerConfigGet().addDefault("InGame", "" + inGame);
         PlayerConfig.PlayerConfigGet().addDefault("Coins", 0);
         PlayerConfig.PlayerConfigSave();
     }
