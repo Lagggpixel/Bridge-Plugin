@@ -6,47 +6,47 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.UUID;
 
 public class PlayerManger {
-    private UUID uuid;
-    private boolean inGame;
-    private int coinsEarned;
-    private boolean isSpec;
+    private UUID _uuid;
+    private boolean _inGame;
+    private int _coinsEarned;
+    private boolean _isSpec;
 
-    public PlayerManger(UUID uuid, boolean ingame, int coinsearned, boolean isdead){
-        this.setUuid(uuid);
-        this.setInGame(ingame);
-        this.setCoinsEarned(coinsearned);
-        this.setSpec(isSpec);
+    public PlayerManger(UUID pUuid, boolean pInGame, int pCoinsEarned, boolean pIsSpec){
+        this._uuid = pUuid;
+        this._inGame = pInGame;
+        this._coinsEarned = pCoinsEarned;
+        this._isSpec = pIsSpec;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID get_uuid() {
+        return _uuid;
     }
 
-    public boolean isInGame() {
-        return inGame;
+    public void set_uuid(UUID pUuid) {
+        this._uuid = pUuid;
     }
 
-    public int getCoinsEarned() {
-        return coinsEarned;
+    public boolean is_inGame() {
+        return _inGame;
     }
 
-    public boolean isSpec() {
-        return isSpec;
+    public void set_inGame(boolean pInGame) {
+        this._inGame = pInGame;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public int get_coinsEarned() {
+        return _coinsEarned;
     }
 
-    public void setInGame(boolean inGame) {
-        this.inGame = inGame;
+    public void set_coinsEarned(int pCoinsEarned) {
+        this._coinsEarned = pCoinsEarned;
     }
 
-    public void setCoinsEarned(int coinsEarned) {
-        this.coinsEarned = coinsEarned;
+    public boolean is_isSpec() {
+        return _isSpec;
     }
 
-    public void setSpec(boolean spec) {
-        isSpec = spec;
+    public void set_isSpec(boolean pIsSpec) {
+        this._isSpec = pIsSpec;
     }
 }
