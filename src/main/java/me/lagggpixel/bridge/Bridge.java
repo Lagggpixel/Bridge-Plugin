@@ -22,7 +22,7 @@ public final class Bridge extends JavaPlugin {
         PlayerConfig.SetupPlayerConfig();
         PlayerConfig.PlayerConfigGet().options().copyDefaults(true);
         PlayerConfig.PlayerConfigSave();
-
+        PlayerConfig.PlayerConfigGet().addDefault("Coins", 0);
 
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
     }
