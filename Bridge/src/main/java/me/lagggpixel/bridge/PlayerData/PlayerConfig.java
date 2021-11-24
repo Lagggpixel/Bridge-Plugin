@@ -3,13 +3,14 @@ package me.lagggpixel.bridge.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
 
-public class PlayerConfig {
-    private static File PlayerConfigFile;
-    private static FileConfiguration PlayerConfigConfiguration;
+public class PlayerConfig extends JavaPlugin {
+    static File PlayerConfigFile;
+    public static FileConfiguration PlayerConfigConfiguration;
 
     public static void SetupPlayerConfig() {
         PlayerConfigFile = new File(Bukkit.getServer().getPluginManager().getPlugin("Bridge").getDataFolder(), "PlayerConfigFile.yml");

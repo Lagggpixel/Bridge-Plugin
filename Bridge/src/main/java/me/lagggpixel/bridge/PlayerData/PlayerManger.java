@@ -1,10 +1,11 @@
 package me.lagggpixel.bridge.PlayerData;
 
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
 
-public class PlayerManger implements Listener {
+public class PlayerManger extends JavaPlugin {
     private UUID uuid;
     private boolean inGame;
     private int coinsEarned;
