@@ -1,6 +1,7 @@
-package me.lagggpixel.bridge.PlayerData;
+package me.lagggpixel.bridge.Listeners;
 
 import me.lagggpixel.bridge.Bridge;
+import me.lagggpixel.bridge.util.PlayerConfig;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,9 +23,9 @@ public class PlayerJoin implements Listener {
         String name = player.getName();
         String inGame = "false";
 
-        PlayerConfig.PlayerConfigGet().addDefault("Name", "" + name);
-        PlayerConfig.PlayerConfigGet().addDefault("InGame", "" + inGame);
-        PlayerConfig.PlayerConfigGet().addDefault("Coins", 0);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Name", "" + name);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".InGame", "" + inGame);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Coins", 0);
         PlayerConfig.PlayerConfigSave();
     }
 }
