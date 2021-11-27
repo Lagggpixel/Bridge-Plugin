@@ -1,4 +1,9 @@
-C:\Users\wanbi\Desktop\Bridge\src\main\java\me\lagggpixel\bridge\PlayerData\PlayerJoin.java
-C:\Users\wanbi\Desktop\Bridge\src\main\java\me\lagggpixel\bridge\Bridge.java
-C:\Users\wanbi\Desktop\Bridge\src\main\java\me\lagggpixel\bridge\PlayerData\PlayerConfig.java
-C:\Users\wanbi\Desktop\Bridge\src\main\java\me\lagggpixel\bridge\PlayerData\PlayerManger.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Listener\PlayerJoin.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Manger\GameManager.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Commands\StartGame.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\util\PlayerConfig.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\util\GameConfig.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Bridge.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Listener\BlockBreak.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Commands\Party.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Manger\PlayerManager.java

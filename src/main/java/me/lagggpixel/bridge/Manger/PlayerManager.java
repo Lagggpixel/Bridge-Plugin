@@ -1,17 +1,14 @@
-package me.lagggpixel.bridge.PlayerData;
+package me.lagggpixel.bridge.Manger;
 
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.java.JavaPlugin;
+import java.util.*;
 
-import java.util.UUID;
-
-public class PlayerManger {
+public class PlayerManager {
     private UUID _uuid;
     private boolean _inGame;
     private int _coinsEarned;
     private boolean _isSpec;
 
-    public PlayerManger(UUID pUuid, boolean pInGame, int pCoinsEarned, boolean pIsSpec){
+    public PlayerManager(final UUID pUuid, final boolean pInGame, final int pCoinsEarned, final boolean pIsSpec) {
         this._uuid = pUuid;
         this._inGame = pInGame;
         this._coinsEarned = pCoinsEarned;
@@ -19,34 +16,34 @@ public class PlayerManger {
     }
 
     public UUID get_uuid() {
-        return _uuid;
+        return this._uuid;
     }
 
-    public void set_uuid(UUID pUuid) {
+    public void set_uuid(final UUID pUuid) {
         this._uuid = pUuid;
     }
 
     public boolean is_inGame() {
-        return _inGame;
+        return this._inGame;
     }
 
-    public void set_inGame(boolean pInGame) {
+    public void set_inGame(final boolean pInGame) {
         this._inGame = pInGame;
     }
 
     public int get_coinsEarned() {
-        return _coinsEarned;
+        return this._coinsEarned;
     }
 
-    public void set_coinsEarned(int pCoinsEarned) {
+    public void set_coinsEarned(final int pCoinsEarned) {
         this._coinsEarned = pCoinsEarned;
     }
 
     public boolean is_isSpec() {
-        return _isSpec;
+        return this._isSpec;
     }
 
-    public void set_isSpec(boolean pIsSpec) {
+    public void set_isSpec(final boolean pIsSpec) {
         this._isSpec = pIsSpec;
     }
 }
