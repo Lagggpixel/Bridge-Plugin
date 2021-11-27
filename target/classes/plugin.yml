@@ -5,8 +5,3 @@ api-version: 1.8
 authors: [ Lagggpixel ]
 description: Bridge Plugin
 softdepend: ['Multiverse-Core']
-commands:
-  start:
-    description: Start a game
-    usage: /[command:start] [options:player player map]
-    alias: [s]

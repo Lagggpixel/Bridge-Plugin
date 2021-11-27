@@ -1,10 +1,8 @@
 package me.lagggpixel.bridge;
 
 import com.onarandombox.MultiverseCore.MultiverseCore;
-import me.lagggpixel.bridge.Commands.startGame;
 import me.lagggpixel.bridge.Listeners.PlayerJoin;
 import me.lagggpixel.bridge.Manger.PlayerManager;
-import me.lagggpixel.bridge.util.GameConfig;
 import me.lagggpixel.bridge.util.PlayerConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,7 +23,6 @@ public final class Bridge extends JavaPlugin {
         register();
         setupConfig();
         setupMultiverse();
-        setupCommands();
     }
 
     @Override
@@ -44,14 +41,6 @@ public final class Bridge extends JavaPlugin {
         PlayerConfig.SetupPlayerConfig();
         PlayerConfig.PlayerConfigGet().options().copyDefaults(true);
         PlayerConfig.PlayerConfigSave();
-
-        GameConfig.SetupGameConfig();
-        GameConfig.GameConfigGet().options().copyDefaults(true);
-        GameConfig.GameConfigSave();
-    }
-
-    private void setupCommands() {
-        this.getCommand("start").setExecutor(new startGame());
     }
 
     private void setupMultiverse() {

@@ -1,9 +1,6 @@
-D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Manger\GameManager.java
-D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Commands\startGame.java
 D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\util\PlayerConfig.java
-D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Listeners\BlockBreak.java
 D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\util\GameConfig.java
 D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Bridge.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Manger\GameManger.java
 D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Listeners\PlayerJoin.java
-D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Commands\party.java
-D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Manger\PlayerManager.java
+D:\Minecraft\Plugins\Bridge\src\main\java\me\lagggpixel\bridge\Manger\PlayerManger.java
