@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.pneumaticraft.commandhandler:CommandHandler:10">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pneumaticraft/commandhandler/CommandHandler/10/CommandHandler-10.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pneumaticraft/commandhandler/CommandHandler/10/CommandHandler-10-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pneumaticraft/commandhandler/CommandHandler/10/CommandHandler-10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,6 +1,9 @@
-me\lagggpixel\bridge\Bridge.class
-me\lagggpixel\bridge\Manger\PlayerManger.class
-me\lagggpixel\bridge\util\GameConfig.class
-me\lagggpixel\bridge\Manger\GameManger.class
+me\lagggpixel\bridge\Commands\party.class
+me\lagggpixel\bridge\Commands\startGame.class
+me\lagggpixel\bridge\Manger\GameManager.class
 me\lagggpixel\bridge\util\PlayerConfig.class
+me\lagggpixel\bridge\Bridge.class
+me\lagggpixel\bridge\Manger\PlayerManager.class
+me\lagggpixel\bridge\Listeners\BlockBreak.class
+me\lagggpixel\bridge\util\GameConfig.class
 me\lagggpixel\bridge\Listeners\PlayerJoin.class

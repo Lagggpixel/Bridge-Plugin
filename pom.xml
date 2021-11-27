@@ -78,7 +78,7 @@
         <dependency>
             <groupId>com.onarandombox.multiversecore</groupId> <!-- Don't forget to replace this -->
             <artifactId>Multiverse-Core</artifactId> <!-- Replace this as well -->
-            <version>4.2.2</version> <!-- This too -->
+            <version>2.5.0</version> <!-- This too -->
             <scope>provided</scope>
         </dependency>
     </dependencies>
