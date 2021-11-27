@@ -1,4 +1,4 @@
-package me.lagggpixel.bridge.util;
+package me.lagggpixel.bridge.PlayerData;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;

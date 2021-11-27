@@ -1,6 +1,4 @@
 me\lagggpixel\bridge\Bridge.class
-me\lagggpixel\bridge\Manger\PlayerManger.class
-me\lagggpixel\bridge\util\GameConfig.class
-me\lagggpixel\bridge\Manger\GameManger.class
-me\lagggpixel\bridge\util\PlayerConfig.class
-me\lagggpixel\bridge\Listeners\PlayerJoin.class
+me\lagggpixel\bridge\PlayerData\PlayerConfig.class
+me\lagggpixel\bridge\PlayerData\PlayerManger.class
+me\lagggpixel\bridge\PlayerData\PlayerJoin.class

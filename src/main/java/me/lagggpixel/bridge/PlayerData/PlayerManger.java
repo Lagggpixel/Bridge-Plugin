@@ -1,14 +1,17 @@
-package me.lagggpixel.bridge.Manger;
+package me.lagggpixel.bridge.PlayerData;
+
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
 
-public class PlayerManager {
+public class PlayerManger {
     private UUID _uuid;
     private boolean _inGame;
     private int _coinsEarned;
     private boolean _isSpec;
 
-    public PlayerManager(UUID pUuid, boolean pInGame, int pCoinsEarned, boolean pIsSpec){
+    public PlayerManger(UUID pUuid, boolean pInGame, int pCoinsEarned, boolean pIsSpec){
         this._uuid = pUuid;
         this._inGame = pInGame;
         this._coinsEarned = pCoinsEarned;

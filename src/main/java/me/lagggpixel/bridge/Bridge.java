@@ -1,9 +1,9 @@
 package me.lagggpixel.bridge;
 
 import com.onarandombox.MultiverseCore.MultiverseCore;
-import me.lagggpixel.bridge.Listeners.PlayerJoin;
-import me.lagggpixel.bridge.Manger.PlayerManager;
-import me.lagggpixel.bridge.util.PlayerConfig;
+import me.lagggpixel.bridge.PlayerData.PlayerConfig;
+import me.lagggpixel.bridge.PlayerData.PlayerJoin;
+import me.lagggpixel.bridge.PlayerData.PlayerManger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,55 +12,25 @@ import java.util.ArrayList;
 
 public final class Bridge extends JavaPlugin {
 
-    private ArrayList<PlayerManager> _playerManager = new ArrayList<PlayerManager>();
-    private Bridge _plugin;
-    private static MultiverseCore _core;
+    public ArrayList<PlayerManger> playerManager = new ArrayList<PlayerManger>();
 
     @Override
     public void onEnable() {
         getServer().getConsoleSender().sendMessage("Thank you for using bridge, the plugin has been enabled.");
 
-        register();
-        setupConfig();
-        setupMultiverse();
-    }
-
-    @Override
-    public void onDisable() {
-        getServer().getConsoleSender().sendMessage("Thank you for using bridge, the plugin has been disabled.");
-    }
-
-    private void register() {
-        getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
-    }
-
-    private void setupConfig() {
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
 
         PlayerConfig.SetupPlayerConfig();
         PlayerConfig.PlayerConfigGet().options().copyDefaults(true);
         PlayerConfig.PlayerConfigSave();
+
+
+        getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
     }
 
-    private void setupMultiverse() {
-        _core = (MultiverseCore) Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
+    @Override
+    public void onDisable() {
+        getServer().getConsoleSender().sendMessage("Thank you for using bridge, the plugin has been disabled.");
     }
-
-    public Bridge getPlugin() {
-        return _plugin;
-    }
-
-    public static MultiverseCore getCore() {
-        return _core;
-    }
-
-    public ArrayList<PlayerManager> getPlayerManager() {
-        return _playerManager;
-    }
-
-    public void setPlayerManager(ArrayList<PlayerManager> pPlayerManager) {
-        this._playerManager = pPlayerManager;
-    }
-
 }
