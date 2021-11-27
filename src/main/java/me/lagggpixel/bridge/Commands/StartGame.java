@@ -15,7 +15,6 @@ public class StartGame implements CommandExecutor
                 if (command.getName().equalsIgnoreCase("start") || command.getName().equalsIgnoreCase("s")) {
                     final Player player2 = Bukkit.getServer().getPlayer(args[0]);
                     final Player player3 = Bukkit.getServer().getPlayer(args[1]);
-                    player.sendMessage("Checkpoint 1");
                     GameManager.startGame(player2, player3, map, player);
                 }
             }

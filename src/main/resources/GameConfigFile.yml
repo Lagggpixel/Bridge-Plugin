@@ -1,2 +1,12 @@
 Map:
-  Urban: 0
+  Urban: 1
+Urban:
+  1:
+    Players:
+      Blue:
+      Red:
+    Goals:
+      Blue:
+      Red:
+    GameEnd: True
+    GameTime:
