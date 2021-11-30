@@ -1,8 +1,12 @@
 package me.lagggpixel.bridge.Listener;
 
-import me.lagggpixel.bridge.*;
-import org.bukkit.event.block.*;
-import org.bukkit.event.*;
+import me.lagggpixel.bridge.Bridge;
+import org.bukkit.DyeColor;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 
 public class BlockBreak implements Listener
 {
@@ -13,6 +17,16 @@ public class BlockBreak implements Listener
     }
 
     @EventHandler
-    public void BlockBreak(final BlockBreakEvent event) {
+    public void BlockBreakEvent(final BlockBreakEvent event) {
+        Block block  = event.getBlock();
+
+        if (block.getType() != Material.STAINED_CLAY || block.getY() > 100) {
+            event.setCancelled(true);
+        } else {
+            if (!(block.getData() == DyeColor.RED.getWoolData() || block.getData() == DyeColor.BLUE.getWoolData()
+                    || block.getData() == DyeColor.WHITE.getWoolData())) {
+                event.setCancelled(true);
+            }
+        }
     }
 }

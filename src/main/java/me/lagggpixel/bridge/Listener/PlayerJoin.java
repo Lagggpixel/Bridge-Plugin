@@ -19,10 +19,14 @@ public class PlayerJoin implements Listener
         final Player player = event.getPlayer();
         final String uuid = player.getUniqueId().toString();
         final String name = player.getName();
-        final String inGame = "false";
-        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Name", (Object)("" + name));
-        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".InGame", (Object)("" + inGame));
-        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Coins", (Object)0);
+        final String InGame = "false";
+        final String PreGame = "false";
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Name", "" + name);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".InGame", "" + InGame);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".PreGame", "" + PreGame);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Coins", 0);
+        PlayerConfig.PlayerConfigGet().addDefault("Player." + uuid + ".Online", "true");
+        PlayerConfig.PlayerConfigGet().set("Player." + uuid + ".Online", "true");
         PlayerConfig.PlayerConfigSave();
     }
 }

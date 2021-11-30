@@ -1,15 +1,15 @@
 package me.lagggpixel.bridge;
 
 import com.onarandombox.MultiverseCore.MultiverseCore;
-import me.lagggpixel.bridge.Commands.StartGame;
+import me.lagggpixel.bridge.Commands.Play;
+import me.lagggpixel.bridge.Listener.BlockBreak;
+import me.lagggpixel.bridge.Listener.BowListener;
 import me.lagggpixel.bridge.Listener.PlayerJoin;
+import me.lagggpixel.bridge.Listener.PlayerLeave;
 import me.lagggpixel.bridge.Manger.PlayerManager;
 import me.lagggpixel.bridge.util.GameConfig;
 import me.lagggpixel.bridge.util.PlayerConfig;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -19,10 +19,6 @@ public final class Bridge extends JavaPlugin
     private ArrayList<PlayerManager> _playerManager;
     private Bridge _plugin;
     private static MultiverseCore _core;
-
-    public Bridge() {
-        this._playerManager = new ArrayList<PlayerManager>();
-    }
 
     public void onEnable() {
         this.getServer().getConsoleSender().sendMessage("Thank you for using bridge, the plugin has been enabled.");
@@ -37,7 +33,10 @@ public final class Bridge extends JavaPlugin
     }
 
     private void register() {
-        this.getServer().getPluginManager().registerEvents((Listener)new PlayerJoin(this), (Plugin)this);
+        this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerLeave(this), this);
+        this.getServer().getPluginManager().registerEvents(new BlockBreak(this), this);
+        this.getServer().getPluginManager().registerEvents(new BowListener(this), this);
     }
 
     private void setupConfig() {
@@ -52,11 +51,12 @@ public final class Bridge extends JavaPlugin
     }
 
     private void setupCommands() {
-        this.getCommand("start").setExecutor((CommandExecutor)new StartGame());
+        this.getCommand("play").setExecutor(new Play());
+        this.getCommand("bridge").setExecutor(new Bridge());
     }
 
     private void setupMultiverse() {
-        Bridge._core = (MultiverseCore)Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
+        me.lagggpixel.bridge.Bridge._core = (MultiverseCore)Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
     }
 
     public Bridge getPlugin() {
@@ -64,7 +64,7 @@ public final class Bridge extends JavaPlugin
     }
 
     public static MultiverseCore getCore() {
-        return Bridge._core;
+        return me.lagggpixel.bridge.Bridge._core;
     }
 
     public ArrayList<PlayerManager> getPlayerManager() {

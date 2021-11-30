@@ -6,7 +6,9 @@ authors: [ Lagggpixel ]
 description: Bridge Plugin
 softdepend: ['Multiverse-Core']
 commands:
-  start:
-    description: Start a game
-    usage: /[command:start] [options:player player map]
-    alias: [s]
+  bridge:
+    description: Primary command
+    usage: /bridge
+  play:
+    description: Join a game
+    usage: /play
