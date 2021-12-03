@@ -24,6 +24,19 @@ public class Bridge implements CommandExecutor {
                         Player player = (Player) sender;
                         player.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "Plugin has been successfully reloaded");
                     }
+                        getServer().getConsoleSender().sendMessage("[Bridge] Plugin has been successfully reloaded");
+                }
+
+                if (args[0].equalsIgnoreCase("help")) {
+                    if (sender instanceof Player) {
+                        Player player = (Player) sender;
+                        player.sendMessage(ChatColor.YELLOW + "Bridge >>> Help");
+                        player.sendMessage(ChatColor.YELLOW + "/bridge help: Show this menu.");
+                        if (player.hasPermission("Bridge.Reload")) {
+                            player.sendMessage(ChatColor.RED + "/bridge reload: Reload this plugin and it's config files.");
+                        }
+
+                    }
                 }
             }
 

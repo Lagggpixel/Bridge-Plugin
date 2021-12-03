@@ -21,7 +21,7 @@ public final class Bridge extends JavaPlugin
     private static MultiverseCore _core;
 
     public void onEnable() {
-        this.getServer().getConsoleSender().sendMessage("Thank you for using bridge, the plugin has been enabled.");
+        this.getServer().getConsoleSender().sendMessage("[Bridge] Thank you for using bridge, the plugin has been enabled.");
         this.register();
         this.setupConfig();
         this.setupMultiverse();
@@ -29,7 +29,7 @@ public final class Bridge extends JavaPlugin
     }
 
     public void onDisable() {
-        this.getServer().getConsoleSender().sendMessage("Thank you for using bridge, the plugin has been disabled.");
+        this.getServer().getConsoleSender().sendMessage("[Bridge] Thank you for using bridge, the plugin has been disabled.");
     }
 
     private void register() {
@@ -52,15 +52,11 @@ public final class Bridge extends JavaPlugin
 
     private void setupCommands() {
         this.getCommand("play").setExecutor(new Play());
-        this.getCommand("bridge").setExecutor(new Bridge());
+        this.getCommand("bridge").setExecutor(new me.lagggpixel.bridge.Commands.Bridge());
     }
 
     private void setupMultiverse() {
         me.lagggpixel.bridge.Bridge._core = (MultiverseCore)Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
-    }
-
-    public Bridge getPlugin() {
-        return this._plugin;
     }
 
     public static MultiverseCore getCore() {

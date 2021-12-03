@@ -7,8 +7,8 @@ description: Bridge Plugin
 softdepend: ['Multiverse-Core']
 commands:
   bridge:
-    description: Primary command
-    usage: /bridge
+    description: Used for a variety of things
+    usage: /bridge help
   play:
     description: Join a game
     usage: /play

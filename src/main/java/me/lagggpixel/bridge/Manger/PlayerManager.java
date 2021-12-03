@@ -1,6 +1,9 @@
 package me.lagggpixel.bridge.Manger;
 
-import java.util.*;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class PlayerManager {
     private UUID _uuid;
@@ -8,13 +11,15 @@ public class PlayerManager {
     private int _coinsEarned;
     private boolean _isSpec;
 
+    public ArrayList<Player> PlayerInGame = new ArrayList<>();
+
     public PlayerManager(final UUID pUuid, final boolean pInGame, final int pCoinsEarned, final boolean pIsSpec) {
         this._uuid = pUuid;
         this._inGame = pInGame;
         this._coinsEarned = pCoinsEarned;
         this._isSpec = pIsSpec;
     }
-
+    
     public UUID get_uuid() {
         return this._uuid;
     }
@@ -46,4 +51,6 @@ public class PlayerManager {
     public void set_isSpec(final boolean pIsSpec) {
         this._isSpec = pIsSpec;
     }
+
+    public ArrayList<Player> Get_Player_InGame() {return this.PlayerInGame;}
 }
