@@ -1,7 +1,6 @@
 # Bridge-Plugin
-Bridge Plugin
-
 This is a bridge plugin created by Lagggpixel & GhostCode. For more information about the plugin, [join our Discord Server](https://discord.gg/XyxAGBH74Z).
+Find it's terms of usage [here]().
 
 What is Bridge?
 ---------------
