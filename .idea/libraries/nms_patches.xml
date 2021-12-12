@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="nms-patches">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../Buildtools/CraftBukkit/nms-patches" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -6,7 +6,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityShootBowEvent;
-import me.lagggpixel.bridge.Manger.BowCountdownManger;
 
 public class BowListener implements Listener {
 
@@ -22,13 +21,12 @@ public class BowListener implements Listener {
 
         if (event.getEntity() instanceof Player) {
             player = (Player) event.getEntity();
-            player.sendMessage("True");
 
-            if (BowCountdownManger.PlayerBowCountdown()) {
+            if (_plugin.get_BowCountdownManager().hasPlayerCoolDown(player)) {
                 player.sendMessage(ChatColor.DARK_RED + "You cannot use that now");
                 event.setCancelled(true);
             } else {
-                BowCountdownManger.AddBowCountdown(player);
+                _plugin.get_BowCountdownManager().addPlayerCoolDown(player, 3);
             }
         }
     }

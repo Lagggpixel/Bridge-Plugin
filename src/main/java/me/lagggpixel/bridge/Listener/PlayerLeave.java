@@ -23,5 +23,7 @@ public class PlayerLeave implements Listener {
         PlayerConfig.PlayerConfigGet().set("Player." + uuid + ".PreGame", "false");
         PlayerConfig.PlayerConfigGet().set("Player." + uuid + ".InGame", "false");
         PlayerConfig.PlayerConfigSave();
+
+        Bridge._PlayersOnline.remove(event.getPlayer());
     }
 }

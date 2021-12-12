@@ -9,6 +9,41 @@ commands:
   bridge:
     description: Used for a variety of things
     usage: /bridge help
-  play:
-    description: Join a game
-    usage: /play
+    permission: Bridge.Main
+    permission-message: "Insufficient permission"
+  gmc:
+    description: Changes your gamemode to creative
+    usage: /gmc
+    permission: Bridge.Gamemodes
+    permission-message: "Insufficient permission"
+  gmsp:
+    description: Changes your gamemode to spectator
+    usage: /gmsp
+    permission: Bridge.Gamemodes
+    permission-message: "Insufficient permission"
+  gms:
+    description: Changes your gamemode to survival
+    usage: /gms
+    permission: Bridge.Gamemodes
+    permission-message: "Insufficient permission"
+  duel:
+    description: Duels other players
+    usage: /duel Player1 Player2 specmode
+    permission: Bridge.Duel
+    permission-message: "Insufficient permission"
+  kit:
+    description: Gives player kit
+    usage: /kit
+permission:
+  Bridge.*:
+    description: Acess to all commands
+    children:
+      - Bridge.Gamemodes
+      - Bridge.Duel
+      - Bridge.Main
+  Bridge.Main:
+    description: Acess to main commands
+  Bridge.Gamemodes:
+    description: Acess to change gamemodes
+  Bridge.Duel:
+    description: Acess to dueling others

@@ -22,6 +22,7 @@ public class GameConfig {
             }
         }
         GameConfig.GameConfigConfiguration = (FileConfiguration)YamlConfiguration.loadConfiguration(GameConfig.GameConfigFile);
+        GameConfig.addDefaults();
     }
 
     public static FileConfiguration GameConfigGet() {
@@ -41,7 +42,9 @@ public class GameConfig {
         GameConfig.GameConfigConfiguration = (FileConfiguration)YamlConfiguration.loadConfiguration(GameConfig.GameConfigFile);
     }
 
-    public void GameMapConfigSetup() {
-        GameConfigGet().addDefault("map.urban", (Object)0);
+    public static void addDefaults() {
+        GameConfigGet().addDefault("Map.Urban", (Object)0);
+        GameConfigGet().addDefault("Map.Aquatica", (Object)0);
     }
+
 }

@@ -1,101 +1,94 @@
 package me.lagggpixel.bridge.Manger;
 
-import com.onarandombox.MultiverseCore.MVWorld;
 import com.onarandombox.MultiverseCore.MultiverseCore;
-import com.onarandombox.MultiverseCore.api.MVWorldManager;
 import me.lagggpixel.bridge.Bridge;
-import me.lagggpixel.bridge.util.GameConfig;
-import me.lagggpixel.bridge.util.PlayerConfig;
+import me.lagggpixel.bridge.Packets.SendTitle;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.scheduler.BukkitRunnable;
 
-public class GameManager {
+import java.util.ArrayList;
+
+public class GameManager implements Listener {
+    private static final Bridge plugin = Bridge.getPlugin(Bridge.class);
+    private static final int PreGameTotalTime = 5;
+    private final int IntervalTotalTime = 3;
+    private final int InGameTotalTime = 900;
+    private final int PlayerNeeded = 2;
+    private boolean IsStarted;
+
     static MultiverseCore core;
-    static MVWorldManager worldManager;
 
-    static {
-        GameManager.core = Bridge.getCore();
-        GameManager.worldManager = GameManager.core.getMVWorldManager();
+    static World GameWorld;
+
+    public static void Duel(Player player1, Player player2, Player sender, String Spec) {
+        try {
+            GameWorld = WorldManager.generateGameWorld(WorldManager.GenerateMap());
+            WorldManager.teleportPreGame(player1, player2, GameWorld);
+        } catch (Exception ignored) {}
+        ArrayList<Player> p;
+        p = new ArrayList<>();
+        p.add(player1);
+        p.add(player2);
+        PreGameCountDown(p);
     }
 
-    // PreGame Lobby
-    public static void PreGame(final Player player) {
-        String maps = "urban";
-        String uuid = player.getUniqueId().toString();
-        if (PlayerConfig.PlayerConfigGet().get("Player." + uuid + ".PreGame").equals("false")) {
+    public static void PreGameLobby(Player player) {
+        String GameWorld = null;
+        int InGame = Bukkit.getWorld(GameWorld).getPlayers().size();
+    }
 
-            if (PlayerConfig.PlayerConfigGet().get("Player." + uuid + ".InGame").equals("false")) {
+    public static void TeleportPlayers(Player player) {}
 
-                if (maps.equalsIgnoreCase("urban")) {
-                    int urban_before = GameConfig.GameConfigGet().getInt("Map.Urban");
-                    final String worldName = "urban" + urban_before;
-                    try {
-                        copyWorld("urban", "" + worldName);
-                    } catch (Exception e) {
-                        Bukkit.getConsoleSender().sendMessage("Error cloning world");
-                    }
-                    final MVWorld map = (MVWorld) GameManager.worldManager.getMVWorld(worldName);
-                    final World GameWorld = map.getCBWorld();
-                    GameManager.core.loadConfigs();
-                    GameManager.TeleportPreGame(GameWorld, player, "urban", urban_before);
-                    int urban_after = urban_before + 1;
-                    GameConfig.GameConfigGet().set("Urban.Map", urban_after);
-                    PlayerConfig.PlayerConfigGet().set("Player." + uuid + ".PreGame", "true");
-                    PlayerConfig.PlayerConfigSave();
+    public static World GenerateMap() {
+        World map = null;
+        int number = 0;
+        int min = 0;
+        int max = 3;
+        number = (int)Math.floor(Math.random()*(max-min+1)+min);
+        if (number == 1) {
+            map = Bukkit.getWorld("urban");
+        } else if (number == 2) {
+            map = Bukkit.getWorld("aquatica");
+        }
+        return map;
+    }
+
+    public static void GameStart(String Game) {}
+
+    public static void GameStop(String Game) {}
+
+    public void GameCountDown() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                int GameCountDown = InGameTotalTime;
+                while (GameCountDown > 0) {
+                    GameCountDown--;
                 }
-
-            } else {
-                player.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "You are in a game at the moment. If you believe this is an error, contact your server admin.");
             }
-        } else {
-            player.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "You are already queuing at the moment. If you believe this is an error, contact your server admin.");
-        }
+
+        }.runTaskTimerAsynchronously(plugin, 0, 20L);
     }
 
-    public static void copyWorld(final String pOldWorld, final String pNewWorld) {
-        GameManager.worldManager.cloneWorld(pOldWorld, pNewWorld);
-    }
+    public static void PreGameCountDown(ArrayList<Player> players) {
+        String message = "Game starts in: ";
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                int PreGameCountDown = PreGameTotalTime;
+                while (PreGameCountDown > 0) {
+                    for (int i = 0; i < players.toArray().length; i++) {
+                        Player player = players.get(i);
+                        SendTitle.SendPlayer(player, message + PreGameCountDown);
+                    }
+                    PreGameCountDown--;
 
-    public static void TeleportPreGame(World GameWorld, Player player, String MapName, int MapNumber) {
-        try {
-            final Location loc1 = new Location(GameWorld, -30.5, 101.0, 0.5, -90.0f, 0.0f);
-            player.teleport(loc1);
-        }
-        catch (Exception e2) {
-            player.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "There has been an issue loading in the game, if this continuously occurs, please contact a server administer");
-        }
-    }
-
-    // Start Game
-    public static void TeleportStartGame(World GameWorld, Player player1, Player player2, Player sender, String MapName, int MapNumber) {
-        try {
-            final Location loc1 = new Location(GameWorld, -30.5, 101.0, 0.5, -90.0f, 0.0f);
-            player1.teleport(loc1);
-            final Location loc2 = new Location(GameWorld, 30.5, 101.0, 0.5, -90.0f, 0.0f);
-            player2.teleport(loc2);
-            final Location loc3 = new Location(GameWorld, 0.5, 93.0, 0.5, 0.0f, 0.0f);
-            sender.teleport(loc3);
-            AddGame(MapName, MapNumber, player1, player2);
-        }
-        catch (Exception e2) {
-            sender.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "There has been an issue loading in the game, if this continuously occurs, please contact a server administer");
-        }
-    }
-
-    //In Game
-
-    //End Game
-
-    //ConfigFile
-    public static void AddGame(String MapName, int MapNumber, Player BlueTeam, Player RedTeam) {
-        GameConfig.GameConfigGet().addDefault(MapName + "." + MapNumber + ".Players.Blue", "" + BlueTeam.getName());
-        GameConfig.GameConfigGet().addDefault(MapName + "." + MapNumber + ".Players.Red", "" + RedTeam.getName());
-        GameConfig.GameConfigGet().addDefault(MapName + "." + MapNumber + ".Goals.Red", 0);
-        GameConfig.GameConfigGet().addDefault(MapName + "." + MapNumber + ".Goals.Blue", 0);
-        GameConfig.GameConfigGet().addDefault(MapName + "." + MapNumber + ".GameEnd", "false");
-        GameConfig.GameConfigGet().addDefault(MapName + "." + MapNumber + ".GameTime", 0);
+                }
+                //GameStart();
+            }
+        }.runTaskTimerAsynchronously(plugin, 0, 20L);
     }
 }

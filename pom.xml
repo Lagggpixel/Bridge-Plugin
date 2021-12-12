@@ -67,11 +67,10 @@
             <url>https://repo.onarandombox.com/content/groups/public/</url>
         </repository>
     </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
+            <artifactId>spigot</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
@@ -79,6 +78,12 @@
             <groupId>com.onarandombox.multiversecore</groupId> <!-- Don't forget to replace this -->
             <artifactId>Multiverse-Core</artifactId> <!-- Replace this as well -->
             <version>2.5.0</version> <!-- This too -->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.luckperms</groupId>
+            <artifactId>api</artifactId>
+            <version>5.3</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

@@ -8,8 +8,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class PlayerConfig {
-    static File PlayerConfigFile;
     public static FileConfiguration PlayerConfigConfiguration;
+    static File PlayerConfigFile;
 
     public static void SetupPlayerConfig() {
         PlayerConfig.PlayerConfigFile = new File(Bukkit.getServer().getPluginManager().getPlugin("Bridge").getDataFolder(), "PlayerConfigFile.yml");

@@ -1,8 +1,5 @@
 package me.lagggpixel.bridge.Manger;
 
-import org.bukkit.entity.Player;
-
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class PlayerManager {
@@ -11,9 +8,7 @@ public class PlayerManager {
     private int _coinsEarned;
     private boolean _isSpec;
 
-    public ArrayList<Player> PlayerInGame = new ArrayList<>();
-
-    public PlayerManager(final UUID pUuid, final boolean pInGame, final int pCoinsEarned, final boolean pIsSpec) {
+    public PlayerManager(UUID pUuid, boolean pInGame, int pCoinsEarned, boolean pIsSpec) {
         this._uuid = pUuid;
         this._inGame = pInGame;
         this._coinsEarned = pCoinsEarned;
@@ -24,7 +19,7 @@ public class PlayerManager {
         return this._uuid;
     }
 
-    public void set_uuid(final UUID pUuid) {
+    public void set_uuid(UUID pUuid) {
         this._uuid = pUuid;
     }
 
@@ -32,7 +27,7 @@ public class PlayerManager {
         return this._inGame;
     }
 
-    public void set_inGame(final boolean pInGame) {
+    public void set_inGame(boolean pInGame) {
         this._inGame = pInGame;
     }
 
@@ -40,7 +35,7 @@ public class PlayerManager {
         return this._coinsEarned;
     }
 
-    public void set_coinsEarned(final int pCoinsEarned) {
+    public void set_coinsEarned(int pCoinsEarned) {
         this._coinsEarned = pCoinsEarned;
     }
 
@@ -48,9 +43,7 @@ public class PlayerManager {
         return this._isSpec;
     }
 
-    public void set_isSpec(final boolean pIsSpec) {
+    public void set_isSpec(boolean pIsSpec) {
         this._isSpec = pIsSpec;
     }
-
-    public ArrayList<Player> Get_Player_InGame() {return this.PlayerInGame;}
 }
