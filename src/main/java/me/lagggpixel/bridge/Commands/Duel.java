@@ -15,30 +15,19 @@ public class Duel implements CommandExecutor {
             Player sender = (Player) commandSender;
 
             if (strings.length == 2) {
-                try {
-                    Player player1 = Bukkit.getPlayer(strings[0]);
-                    Player player2 = Bukkit.getPlayer(strings[1]);
-                    GameManager.Duel(player1, player2, sender, "false");
-                } catch (Exception ignored) {}
-            } else if (strings.length == 3) {
-                try {
-                    Player player1 = Bukkit.getPlayer(strings[0]);
-                    Player player2 = Bukkit.getPlayer(strings[1]);
-                    GameManager.Duel(player1, player2, sender, strings[2]);
-                } catch (Exception ignored) {}
+                Player player1 = Bukkit.getPlayer(strings[0]);
+                Player player2 = Bukkit.getPlayer(strings[1]);
+                GameManager.Duel(player1, player2);
             } else {
-                sender.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "Insufficient arguments, contact a server admin if you believe this is an error.");
+                sender.sendMessage(ChatColor.YELLOW + "Bridge >>> " + ChatColor.RED + "Insufficient arguments.");
             }
         } else {
             if (strings.length == 2) {
-                try {
-                    Player player1 = Bukkit.getPlayer(strings[0]);
-                    Player player2 = Bukkit.getPlayer(strings[1]);
-                    GameManager.Duel(player1, player2, Bukkit.getPlayer("Lagggpixel"), "false");
-                } catch (Throwable ignored) {
-                }
+                Player player1 = Bukkit.getPlayer(strings[0]);
+                Player player2 = Bukkit.getPlayer(strings[1]);
+                GameManager.Duel(player1, player2);
             } else {
-                System.out.println("Error, please check if the plugin is updated.");
+                System.out.println("Bridge >>> Insufficient arguments.");
             }
         }
         return true;

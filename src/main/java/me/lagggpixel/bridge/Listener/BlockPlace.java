@@ -21,7 +21,7 @@ public class BlockPlace implements Listener {
     public void BlockPlaceEvent(BlockPlaceEvent event) {
         Block block = event.getBlock();
         Player player = event.getPlayer();
-        if (block.getY() > 99 ) {
+        if (block.getY() > 99 || block.getY() < 83) {
             event.setCancelled(true);
             player.sendMessage(message);
         }

@@ -24,8 +24,6 @@ public class PickupListener implements Listener {
             if (playerInv.contains(Material.ARROW, 1) || _plugin.get_BowCountdownManager().hasPlayerCoolDown(player)){
                 event.setCancelled(true);
             }
-        } else {
-            event.setCancelled(true);
-        }
+        } else event.setCancelled(event.getItem().getItemStack().getType() != Material.STAINED_CLAY);
     }
 }

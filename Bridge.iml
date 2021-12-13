@@ -24,8 +24,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="spigot-1.8.8" level="project" />
-    <orderEntry type="library" name="craftbukkit-1.8.8" level="project" />
     <orderEntry type="library" name="nms-patches" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.onarandombox.multiversecore:Multiverse-Core:2.5.0" level="project" />

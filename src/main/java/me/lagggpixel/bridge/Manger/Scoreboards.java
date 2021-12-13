@@ -34,8 +34,9 @@ public class Scoreboards {
     }
 
     private void createScoreboard(Player pPlayer) {
-        Objective objective = _scoreboard.registerNewObjective("Test", "dummy");
-        objective.setDisplayName(ChatColor.YELLOW + "Scoreboard Title");
+        Objective objective;
+        objective = _scoreboard.registerNewObjective(pPlayer.getName(), "dummy");
+        objective.setDisplayName(ChatColor.YELLOW + "Bridge");
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
         Date date = new Date();

@@ -34,7 +34,7 @@ public class BlockBreak implements Listener
                 player.sendMessage(message);
             }
         }
-        if (block.getY() > 100) {
+        if (block.getY() > 99) {
             event.setCancelled(true);
             player.sendMessage(message);
         }

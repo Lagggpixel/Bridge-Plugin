@@ -1,6 +1,5 @@
 package me.lagggpixel.bridge.Manger;
 
-import com.onarandombox.MultiverseCore.MultiverseCore;
 import me.lagggpixel.bridge.Bridge;
 import me.lagggpixel.bridge.Packets.SendTitle;
 import org.bukkit.Bukkit;
@@ -19,20 +18,17 @@ public class GameManager implements Listener {
     private final int PlayerNeeded = 2;
     private boolean IsStarted;
 
-    static MultiverseCore core;
-
     static World GameWorld;
 
-    public static void Duel(Player player1, Player player2, Player sender, String Spec) {
+    public static void Duel(Player player1, Player player2) {
         try {
             GameWorld = WorldManager.generateGameWorld(WorldManager.GenerateMap());
             WorldManager.teleportPreGame(player1, player2, GameWorld);
+            ArrayList<Player> p = new ArrayList<>();
+            p.add(player1);
+            p.add(player2);
+            PreGameCountDown(p);
         } catch (Exception ignored) {}
-        ArrayList<Player> p;
-        p = new ArrayList<>();
-        p.add(player1);
-        p.add(player2);
-        PreGameCountDown(p);
     }
 
     public static void PreGameLobby(Player player) {
